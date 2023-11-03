@@ -1,35 +1,47 @@
+<script>
+import AHeader from "@/components/AHeader.vue";
+import AMenu from "@/components/AMenu.vue";
+
+export default {
+
+    components: {
+
+        AHeader,
+
+        AMenu,
+    },
+
+
+
+};
+</script>
+
+
 <template>
     <div>
         <AHeader />
 
 
+        <div class="row">
+            <div class="col-sm-3">
+                <AMenu />
 
-        <h1> Trang chủ Admin</h1>
+            </div>
+            <div class="col-sm-9">
+                <router-view></router-view>
+
+            </div>
 
 
-        <router-view></router-view>
-
-
-
-
-        <AFooter />
-
+        </div>
 
 
 
     </div>
 </template>
-
-
-
-<script>
-import AFooter from "../components/AFooter.vue";
-import AHeader from "../components/AHeader.vue";
-
-export default {
-    components: {
-        AHeader,
-        AFooter,
-    },
-};
-</script>
+<style>
+.page {
+    max-width: 400px;
+    margin: auto;
+}
+</style>
