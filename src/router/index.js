@@ -12,7 +12,7 @@ const routes = [
       
       {
         path: "",
-        name: "hienmau",
+        name: "trangchu",
         component: () => import("@/views/TrangChu.vue"),
       },
     
@@ -21,6 +21,11 @@ const routes = [
         path: "/auth",
         name: "auth",
         component: () => import("@/views/Auth.vue"),
+      },
+      {
+        path: "/product",
+        name: "product",
+        component: () => import("@/views/Product.vue"),
       },
     
       {

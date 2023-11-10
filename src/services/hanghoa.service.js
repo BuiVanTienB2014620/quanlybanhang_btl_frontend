@@ -1,7 +1,7 @@
 import createApiClient from "./api.service";
 
-class UserService {
-  constructor(baseUrl = "/api/users") {
+class ProductService {
+  constructor(baseUrl = "/api/products") {
     this.api = createApiClient(baseUrl);
   }
   async getAll() {
@@ -12,9 +12,6 @@ class UserService {
   }
   async login(data) {
     return (await this.api.post("/login", data)).data;
-  }
-  async logout(data) {
-    return (await this.api.post("/logout", data)).data;
   }
   async deleteAll() {
     return (await this.api.delete("/")).data;
@@ -30,4 +27,4 @@ class UserService {
   }
 }
 
-export default new UserService();
+export default new ProductService();

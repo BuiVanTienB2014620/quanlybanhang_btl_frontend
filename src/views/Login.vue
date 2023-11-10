@@ -1,13 +1,10 @@
 <template>
     <div class="lg">
         <p>{{ message }}</p>
-
-        <FormLogin @submit:login="Login" />
-
-
+        <FormLogin @submit:login="loginUser" />
     </div>
 </template>
-
+  
 <script>
 import FormLogin from "@/components/Formlogin.vue";
 import UserService from "@/services/user.service.js";
@@ -16,62 +13,43 @@ export default {
     components: {
         FormLogin,
     },
-    props: {
-        login: { type: Object, required: true },
-
-    },
     data() {
         return {
             message: "",
         };
     },
     methods: {
-        // async Login(data) {
-
-        //     console.log(data);
-
-        //         try {
-        //             await UserService.login(data);
-        //             this.message = "Đăng nhập thành công";
-        //             this.$router.push({ name: 'auth' });
-
-        //         } catch (error) {
-        //             this.message = "Đăng nhập thất bại, mật khẩu hoặc email chưa chính xác";
-        //             console.log(error);
-        //         }
-
-        // },
-        async Login(data) {
-            console.log(data);
-
+        async loginUser(data) {
             try {
-                await UserService.login(data);
+                const response = await UserService.login(data);
+                console.log("hello", response);
+                localStorage.setItem('user', JSON.stringify(response.user));
 
-                // Kiểm tra email để xác định trang đích
-                if (data.email === "admin@gmail.com" && data.password === "admin123") {
-                    // Nếu email và mật khẩu là admin, định hướng đến trang admin
-                    this.message = "Đăng nhập thành công vào trang admin";
-                    this.$router.push({ name: 'awelcome' });
+                if (response && response.message === 'Đăng nhập thành công') {
+                    // Check the user's role
+                    if (response.user.role === 'admin') {
+                        this.message = "Đăng nhập thành công vào trang admin";
+                        this.$router.push({ name: 'awelcome' }); // Assuming 'admin' is the name of your admin route.
+                    } else {
+                        this.message = "Đăng nhập thành công";
+                        this.$router.push({ name: 'auth' }); // Assuming 'auth' is the name of your user route.
+                    }
                 } else {
-                    this.message = "Đăng nhập thành công ";
-                    this.$router.push({ name: 'auth' });
+                    this.message = "Đăng nhập thất bại, mật khẩu hoặc email chưa chính xác";
                 }
             } catch (error) {
-                this.message = "Đăng nhập thất bại, mật khẩu hoặc email chưa chính xác";
-                console.log(error);
+                console.error("Login error:", error);
+                this.message = "Đã xảy ra lỗi trong quá trình đăng nhập";
             }
         },
-
-
     },
-
-
-}
+};
 </script>
-
+  
 <style scoped>
 .lg>p {
     margin-bottom: 28px;
     color: rgb(249, 4, 4);
 }
 </style>
+  

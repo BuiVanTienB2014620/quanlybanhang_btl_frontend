@@ -2,7 +2,7 @@
     <div>
         <nav class="navbar navbar-expand navbar-dark bg-white">
             <a href="" class="navbar-brand">
-                <router-link :to="{ name: 'hienmau' }" class="nav-link">
+                <router-link :to="{ name: 'trangchu' }" class="nav-link">
 
                     <img src="../assets/img/download.jpg" alt="" class="rounded-circle logo-img mr-2">
                     <span class="logo-text text-success">Shop Cereal </span>
@@ -12,116 +12,151 @@
             </a>
             <div class="logo-container" :style="logoContainerStyles">
                 <img src="../assets/img/nss.png" alt="" class="logo1">
-               
-            </div>
-            <div class="navbar-user" v-if="isLoggedIn" @click="loginUser()">
-                <router-link :to="{ name: 'login' }" class="login">
-                    <i class="fa-solid fa-user"></i> Đăng Nhập
-
-                </router-link>
 
             </div>
+            <div>
+                <div class="navbar-user" v-if="!isLoggedIn" @click="loginUser()">
+                    <router-link :to="{ name: 'login' }" class="login">
+                        <i class="fa-solid fa-user"></i> Đăng Nhập
 
-            <div class="dropdown" v-if="usLoggedIn">
-                <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    <img src="@/assets/img/chitonngoc.jpg" class="rounded-circle" height="55" width="60" alt="User"
-                        loading="lazy" />
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <router-link class="dropdown-item" to="/">
-                        <button type="button" class="btn btn-success" >
+                    </router-link>
+
+                </div>
+
+                <div class="dropdown" v-else>
+                    <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <img src="@/assets/img/chitonngoc.jpg" class="rounded-circle" height="55" width="60" alt="User"
+                            loading="lazy" />
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                        <button type="button" class="btn btn-success" @click="logout">
                             Đăng xuất
 
                         </button>
-                      
-                    </router-link>
-                   
-                    <AModal :visible="AModalVisible" variant="success" @click.stop></AModal>
+
+
+
+                        <div>
+                            <button @click="OpenModalRegister" class="btn btn-success">Thay đổi thông tin</button>
+                        </div>
+
+                        <AModal :isShowModalRegister="isShowModalRegister" :closeModalRegister="closeModalRegister" />
+
+
+                    </div>
                 </div>
+
+
             </div>
+
         </nav>
         <div>
             <nav class="navbar navi">
                 <div class="nav-item" style="margin-right: 16px; color: white;margin-left: auto;">
-                    <router-link :to="{ name: 'hienmau' }" class="nav-link" style="color: #ffffff;">
+                    <router-link :to="{ name: 'trangchu' }" class="nav-link" style="color: #ffffff;">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-2" width="24"
+                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M5 12l-2 0l9 -9l9 9l-2 0"></path>
+                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"></path>
+                            <path d="M10 12h4v4h-4z"></path>
+                        </svg>
+
 
                         Trang Chủ
 
                     </router-link>
 
                 </div>
-                <div class="nav-item" style="margin-right: 16px; color: white; ">Hỏi Đáp</div>
-                <div :class="'nav-item'" style="color: white;margin-right: auto;">Tin Tức</div>
+                <div class="nav-item" style="margin-right: 16px; color: white; ">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-question"
+                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                        <path d="M13.5 17h-7.5v-14h-2"></path>
+                        <path d="M6 5l14 1l-.714 5m-4.786 2h-8.5"></path>
+                        <path d="M19 22v.01"></path>
+                        <path d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483"></path>
+                    </svg>
+
+                    Hỏi Đáp
+                </div>
+                <div :class="'nav-item'" style="color: white;margin-right: auto;"></div>
             </nav>
 
         </div>
 
 
+
+
+
+
     </div>
 </template>
+
+
 <script>
-import AModal from "./AModal.vue";
 
 
 export default {
-    components:{
+    components: {
         AModal,
 
     },
     data() {
         return {
-            isLoggedIn: true,
-            usLoggedIn: false,
+            isLoggedIn: false,
+
             AModalVisible: false,
+
         };
-       
+
     },
-    computed: {
-        logoContainerStyles() {
-            if (this.isLoggedIn) {
-                // Trang đăng nhập hoặc đăng ký
-                return {
-                    marginRight: '20%',
 
-                };
-            } else if(this.usLoggedIn){
-                 // Trang đăng nhập hoặc đăng ký
-                 return {
-                    marginRight: '23%',
 
-                };
 
-            }
-             else {
-                // Trang chủ hoặc các trang khác
-                return {
-                    marginRight: '37.4%',
+    mounted() {
+        // Khai báo biến intervalId bằng let hoặc const
+        let intervalId;
 
-                }; // Trả về một đối tượng rỗng để không có margin-right
-            }
-        },
-    },
-    watch: {
-        '$route.name'(newRoute, oldRoute) {
+        // Gọi đoạn code mỗi 5 giây và lưu giá trị được trả về bởi setInterval
+        intervalId = setInterval(() => {
+            const userJs = window.localStorage.getItem('user');
+            const user = JSON.parse(userJs);
+           
 
-            if (newRoute === 'hienmau') {
+            if (user) {
+                console.log('user', user);
                 this.isLoggedIn = true;
-                this.usLoggedIn = false;
+            } 
+        }, 100); // Gọi mỗi 0,1 giây 
 
-            }else if(newRoute === 'auth'){
-                this.usLoggedIn = true;
+        // Để dừng việc gọi đoạn code sau một thời gian hoặc khi điều kiện nào đó được thỏa mãn, bạn có thể sử dụng clearInterval(intervalId)
 
-            }
-             else {
-                this.isLoggedIn = false;
-            }
-        },
-        
+        // Ví dụ: Dừng việc gọi đoạn code sau 300 giây
+        setTimeout(() => {
+            clearInterval(intervalId);
+        }, 3000000);
     },
+
+
 
 
     methods: {
+
+
+
+        logout() {
+            window.localStorage.removeItem('user');
+            this.isLoggedIn = false;
+
+
+            this.$router.push({ name: "trangchu" });
+        },
         loginUser() {
 
             this.$router.push({ name: "login" });
@@ -129,9 +164,28 @@ export default {
         openModal() {
             this.AModalVisible = false;
         },
+
+
     }
 };
 </script>
+
+<script setup>
+import { ref } from "vue";
+import AModal from "./AModal.vue";
+
+
+const isShowModalRegister = ref(false)
+
+const OpenModalRegister = () => {
+    isShowModalRegister.value = true;
+};
+const closeModalRegister = () => {
+    isShowModalRegister.value = false;
+};
+</script>
+
+
 <style scoped>
 /* CSS để bo tròn ảnh và thu nhỏ nó */
 .navbar {

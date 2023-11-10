@@ -52,7 +52,8 @@
         </div>
         <!--1 -->
         <div class="row">
-          <div class="col">
+
+          <div class="col"  @click="OpenModalRegister">
             <img
               src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
               alt="Hình ảnh" class="imgsp" />
@@ -69,6 +70,9 @@
               </div>
               <p>120.000 VNĐ</p>
             </div>
+           
+
+            <homeModal :isShowModalRegister="isShowModalRegister" :closeModalRegister="closeModalRegister" />
           </div>
 
           <div class="col">
@@ -387,16 +391,29 @@
 
   </div>
 </template>
-  
+
 <script>
-
-
 
 export default {
 
 
-
 }
+
+
+</script>
+<script setup>
+import { ref } from "vue";
+import homeModal from "./homeModal.vue";
+
+
+const isShowModalRegister = ref(false)
+
+const OpenModalRegister = () => {
+  isShowModalRegister.value = true;
+};
+const closeModalRegister = () => {
+  isShowModalRegister.value = false;
+};
 </script>
   
 <style scoped>

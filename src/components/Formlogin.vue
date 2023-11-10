@@ -66,7 +66,7 @@
 
                 </div>
                 <div class="col-sm-6 px-0 d-none d-sm-block">
-                    <img src="https://img.freepik.com/premium-photo/woman-child-hands-holding-red-heart-with-paper-sign-blood-donation_101840-110.jpg?size=626&ext=jpg&ga=GA1.2.1039428275.1684508452&semt=ais"
+                    <img src="https://img.freepik.com/free-photo/some-assorted-nuts-dried-fruits-with-pecan-pistachios-almond-peanut-cashew-pine-nuts-different-bowls-black-pan-flat-lay_176474-2063.jpg?w=1060&t=st=1699535762~exp=1699536362~hmac=18f9f79ee313643b2c3a075566c9891df6a7443ab82bb90b8fd93e40016d70b5"
                         alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
                 </div>
             </div>

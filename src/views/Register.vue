@@ -8,7 +8,7 @@
   
   <script>
   import FormRegister from "@/components/FormRegister.vue";
-  import UserService from "@/services/user.service.js";
+import UserService from "@/services/user.service.js";
   
   export default {
     components: {

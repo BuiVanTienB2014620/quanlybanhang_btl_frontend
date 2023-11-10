@@ -1,7 +1,7 @@
 
 <template>
     <section class="vh-250"
-        style="background-image: url('https://img.freepik.com/premium-photo/it39s-splash-red-blood-isolation-white-background_230115-2289.jpg?size=626&ext=jpg&ga=GA1.1.1039428275.1684508452&semt=sph');">
+        style="background-image: url('https://img.freepik.com/free-vector/rice-grain-sacks-bowls-sketch-set_74855-16230.jpg');">
         <div class=" ">
             <div class="container h-100 ">
                 <div class="row  d-flex justify-content-center align-items-center h-100" style="padding: 20px;">

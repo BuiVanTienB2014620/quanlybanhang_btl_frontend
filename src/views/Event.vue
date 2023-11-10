@@ -12,7 +12,7 @@
                             <th scope="col">Giá</th>
                             <th style="width:120px" scope="col">Số lượng</th>
                             <th scope="col">Thành tiền</th>
-                            
+
                         </tr>
                     </thead>
                     <tbody>
@@ -47,20 +47,24 @@
                     <div style="background-color: #CCC;"><b>Tổng đơn hàng:</b></div>
                     <div>{{ totalAmount }}.000 vnđ</div>
                 </div>
-                <button class="btn btn-success" @click="navigateToIndex">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="24"
-                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M5 12l14 0"></path>
-                        <path d="M5 12l6 6"></path>
-                        <path d="M5 12l6 -6"></path>
-                    </svg>
+                <router-link :to="{ name: 'auth' }">
+                    <button class="btn btn-success" @click="navigateToIndex">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-left" width="24"
+                            height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M5 12l14 0"></path>
+                            <path d="M5 12l6 6"></path>
+                            <path d="M5 12l6 -6"></path>
+                        </svg>
 
-                    Tiếp tục mua hàng</button>
+                        Tiếp tục mua hàng</button>
+
+                </router-link>
 
 
-               
+
+
 
 
             </div>
@@ -114,6 +118,13 @@
                         <input type="radio" v-model="customer.pt" value="Thanh toán khi nhận hàng" />Thanh toán khi nhận
                         hàng
                     </label>
+                    <router-link :to="{ name: 'psuccess' }">
+                        <button>
+                            tiếp
+                        </button>
+
+
+                    </router-link>
                     <button name="btn-pay" @click="placeOrder"
                         style="display: block; overflow: hidden; color: #fff; text-align: center; height: 50px; margin: 10px auto; width: 100%; border-radius: 4px; background: #00ab9f; cursor: pointer;">Thanh
                         toán</button>

@@ -30,8 +30,8 @@
                     <thead>
                         <tr>
                             <th style="display: none;">id_sach</th>
-                            <th scope="col">Sách</th>
-                            <th style="width: 300px" scope="col">Tên sách</th>
+                            <th scope="col">Sản phẩm</th>
+                            <th style="width: 300px" scope="col"></th>
                             <th scope="col">Giá</th>
                             <th style="width: 120px" scope="col">Số lượng</th>
                             <th scope="col">Thành tiền</th>
@@ -63,7 +63,8 @@
                 </table>
 
             </div>
-            <button style="
+            <router-link :to="{ name: 'auth' }">
+                <button style="
             float: right;
             width: 100%;
             overflow: hidden;
@@ -76,8 +77,11 @@
             border: 0;
             cursor: pointer;
           ">
-                <a style="color: #fff; text-decoration: none" href="index-login.php">Tiếp tục mua hàng</a>
-            </button>
+                    Tiếp tục mua hàng
+                </button>
+
+            </router-link>
+
         </div>
     </div>
 </template>

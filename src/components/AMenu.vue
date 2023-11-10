@@ -91,12 +91,11 @@
             </tbody>
         </table>
         <div class="button">
-            <router-link :to="{ name: 'hienmau' }">
-                <button>
-                    Đăng xuất
-                </button>
 
-            </router-link>
+            <button type="button" class="btn btn-success" @click="logout">
+                Đăng xuất
+
+            </button>
 
 
         </div>
@@ -108,6 +107,21 @@
 
 <script>
 export default {
+    methods: {
+
+
+
+        logout() {
+            window.localStorage.removeItem('user');
+            this.isLoggedIn = false;
+
+
+            this.$router.push({ name: "trangchu" });
+        },
+
+
+
+    }
 
 }
 </script>
