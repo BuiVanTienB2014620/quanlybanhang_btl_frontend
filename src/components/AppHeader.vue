@@ -130,7 +130,7 @@ export default {
            
 
             if (user) {
-                console.log('user', user);
+                // console.log('user', user);
                 this.isLoggedIn = true;
             } 
         }, 100); // Gọi mỗi 0,1 giây 

@@ -42,256 +42,36 @@
     <!-- Quyền lợi khi hiến máu -->
     <div class="tc">
       <div class="container">
-        <!-- 1 -->
+        
         <div class="row">
-          <div class="col-sm-3">
-
-          </div>
-
-
-        </div>
-        <!--1 -->
-        <div class="row">
-          <router-link :to="{ name: 'product' }">
-            <div class="col">
-              <img
-                src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
-                alt="Hình ảnh" class="imgsp" />
+          
+            <div class="col-sm-3" v-for="product in products" :key="product._id">
+              <router-link :to="{ name: 'product' }">
+              <img :src="product.imgURL" alt="Hình ảnh" class="imgsp" />
 
 
 
               <div class="ten">
-                <p>Combo 5 loại đậu</p>
+                <p>{{ product.TenHH }}</p>
                 <div class="ngoi-sao">
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
                   <i class="fa-solid fa-star"></i>
                 </div>
-                <p>120.000 VNĐ</p>
+                <p>{{ product.Gia }} VNĐ</p>
               </div>
+               </router-link>
             </div>
-          </router-link>
-
-
-          <div class="col">
-            <img
-              src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
-              alt="Hình ảnh" class="imgsp" />
+         
 
 
 
-            <div class="ten">
-              <p>Combo 5 loại đậu</p>
-              <div class="ngoi-sao">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p>120.000 VNĐ</p>
-            </div>
-          </div>
 
-          <div class="col">
-            <img
-              src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
-              alt="Hình ảnh" class="imgsp" />
-
-
-
-            <div class="ten">
-              <p>Combo 5 loại đậu</p>
-              <div class="ngoi-sao">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p>120.000 VNĐ</p>
-            </div>
-          </div>
-
-          <div class="col">
-            <img
-              src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
-              alt="Hình ảnh" class="imgsp" />
-
-
-
-            <div class="ten">
-              <p>Combo 5 loại đậu</p>
-              <div class="ngoi-sao">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p>120.000 VNĐ</p>
-            </div>
-          </div>
 
         </div>
-        <!-- 2 -->
-        <div class="row">
-          <div class="col">
-            <img
-              src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
-              alt="Hình ảnh" class="imgsp" />
 
 
-
-            <div class="ten">
-              <p>Combo 5 loại đậu</p>
-              <div class="ngoi-sao">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p>120.000 VNĐ</p>
-            </div>
-          </div>
-
-          <div class="col">
-            <img
-              src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
-              alt="Hình ảnh" class="imgsp" />
-
-
-
-            <div class="ten">
-              <p>Combo 5 loại đậu</p>
-              <div class="ngoi-sao">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p>120.000 VNĐ</p>
-            </div>
-          </div>
-
-          <div class="col">
-            <img
-              src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
-              alt="Hình ảnh" class="imgsp" />
-
-
-
-            <div class="ten">
-              <p>Combo 5 loại đậu</p>
-              <div class="ngoi-sao">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p>120.000 VNĐ</p>
-            </div>
-          </div>
-
-
-          <div class="col">
-            <img
-              src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
-              alt="Hình ảnh" class="imgsp" />
-
-
-
-            <div class="ten">
-              <p>Combo 5 loại đậu</p>
-              <div class="ngoi-sao">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p>120.000 VNĐ</p>
-            </div>
-          </div>
-
-        </div>
-        <!-- 3 -->
-        <div class="row">
-          <div class="col">
-            <img
-              src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
-              alt="Hình ảnh" class="imgsp" />
-
-
-
-            <div class="ten">
-              <p>Combo 5 loại đậu</p>
-              <div class="ngoi-sao">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p>120.000 VNĐ</p>
-            </div>
-          </div>
-
-          <div class="col">
-            <img
-              src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
-              alt="Hình ảnh" class="imgsp" />
-
-
-
-            <div class="ten">
-              <p>Combo 5 loại đậu</p>
-              <div class="ngoi-sao">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p>120.000 VNĐ</p>
-            </div>
-          </div>
-
-          <div class="col">
-            <img
-              src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
-              alt="Hình ảnh" class="imgsp" />
-
-
-
-            <div class="ten">
-              <p>Combo 5 loại đậu</p>
-              <div class="ngoi-sao">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p>120.000 VNĐ</p>
-            </div>
-          </div>
-
-
-          <div class="col">
-            <img
-              src="https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg"
-              alt="Hình ảnh" class="imgsp" />
-
-
-
-            <div class="ten">
-              <p>Combo 5 loại đậu</p>
-              <div class="ngoi-sao">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-              </div>
-              <p>120.000 VNĐ</p>
-            </div>
-          </div>
-
-        </div>
 
 
 
@@ -392,14 +172,35 @@
 </template>
   
 <script>
-
-
+import ProductService from '../services/hanghoa.service';
 
 export default {
+  data() {
+    return {
+      products: [],
 
+    };
+  },
+  props: {
+    id: { type: String, required: true },
+  },
+  methods: {
+    async retrieveProducts() {
+      try {
+        this.products = await ProductService.getAll();
+      } catch (error) {
+        console.error(error);
+      }
+    },
+  },
+  created() {
+    this.retrieveProducts();
+  },
 
 
 }
+
+
 </script>
   
 <style scoped>

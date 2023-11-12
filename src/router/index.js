@@ -1,22 +1,23 @@
-
 import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-  
   {
     path: "/",
-   
+
     component: () => import("@/layouts/Base.vue"),
-   
+
     children: [
-      
       {
         path: "",
         name: "trangchu",
         component: () => import("@/views/TrangChu.vue"),
       },
-    
-    
+      {
+        path: "/:pathMatch(.*)*",
+        name: "notfound",
+        component: () => import("@/views/NotFound.vue"),
+      },
+
       {
         path: "/auth",
         name: "auth",
@@ -27,7 +28,7 @@ const routes = [
         name: "product",
         component: () => import("@/views/Product.vue"),
       },
-    
+
       {
         path: "/loginuser",
         name: "login",
@@ -48,9 +49,6 @@ const routes = [
         name: "psuccess",
         component: () => import("@/views/Psuccess.vue"),
       },
-     
-
-      
     ],
   },
   {
@@ -69,7 +67,6 @@ const routes = [
         component: () => import("@/admin/User.vue"),
       },
 
-     
       {
         path: "position",
         name: "admin-position",
@@ -86,12 +83,13 @@ const routes = [
         component: () => import("@/admin/position/addposition.vue"),
       },
       {
-        path: "editposition",
+        path: "editposition/:id",
         name: "editposition",
         component: () => import("@/admin/position/editposition.vue"),
       },
     ],
   },
+ 
 ];
 
 const router = createRouter({
