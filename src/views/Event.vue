@@ -71,12 +71,7 @@
             <div class="col-sm-3">
                 <h5 class="text-dark">THÔNG TIN KHÁCH HÀNG</h5>
                 <form class="text-dark" style="color:#e3e3e3" @submit.prevent="placeOrder">
-                    <label>
-                        <input type="radio" required v-model="customer.gender" value="Anh"> Anh
-                    </label>
-                    <label>
-                        <input type="radio" required v-model="customer.gender" value="Chị"> Chị
-                    </label>
+                   
                     <label>Họ và tên:
                         <input type="text" required v-model="customer.hoten" placeholder="Nhập họ và tên">
                     </label>

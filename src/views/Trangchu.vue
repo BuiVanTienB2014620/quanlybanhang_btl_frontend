@@ -39,10 +39,10 @@
 
 
     </div>
-   
+
     <div class="tc">
       <div class="container">
-      
+
         <div class="row">
 
           <div class="col-sm-3" @click="OpenModalRegister" v-for="product in products" :key="product._id">
@@ -53,10 +53,11 @@
             <div class="ten">
               <p>{{ product.TenHH }}</p>
               <div class="ngoi-sao">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
+                <i class="fa-solid fa-star text-warning"></i>
               </div>
               <p>{{ product.Gia }} VNĐ</p>
             </div>

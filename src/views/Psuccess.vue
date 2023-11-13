@@ -20,6 +20,12 @@
                 <label><b>Phương thức thanh toán:</b></label>
                 <label>{{ customer.pt }}</label><br>
             </div>
+            <div>
+                <label><b>Ngày đặt hàng:</b> {{ orderInfo.orderDate }}</label><br>
+                <label><b>Ngày giao hàng:</b> {{ orderInfo.deliveryDate }}</label><br>
+                <label><b>Trạng thái giao hàng:</b> {{ orderInfo.deliveryStatus }}</label><br>
+                <label><b>Người giao hàng:</b> {{ orderInfo.deliveryPerson }}</label><br>
+            </div>
 
 
         </div>
@@ -29,10 +35,11 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th style="display: none;">id_sach</th>
+                            <th style="display: none;">id</th>
                             <th scope="col">Sản phẩm</th>
                             <th style="width: 300px" scope="col"></th>
                             <th scope="col">Giá</th>
+                            <th scope="col">Giảm giá</th> <!-- Thêm cột Giảm giá -->
                             <th style="width: 120px" scope="col">Số lượng</th>
                             <th scope="col">Thành tiền</th>
                         </tr>
@@ -45,10 +52,12 @@
                             <td><img :src="product.hinh" alt="Product Image" class="img" /></td>
                             <td>{{ product.sanpham }}</td>
                             <td>{{ product.dongia }}.000 vnđ</td>
+                            <td>{{ product.giamGia }}%</td> <!-- Hiển thị giảm giá -->
                             <td>
                                 <p>{{ product.soluong }}</p>
                             </td>
-                            <td>{{ product.tongtien }}.000 vnđ</td>
+                            <td>{{ (product.dongia * (1 - product.giamGia / 100) * product.soluong).toFixed(2) }}.000 vnđ
+                            </td> <!-- Tính toán tổng tiền -->
                         </tr>
                     </tbody>
                     <tr>
@@ -94,21 +103,21 @@ export default {
             cart: [
                 {
                     id: 1,
-                    hinh:
-                        'https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg',
+                    hinh: 'https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg',
                     sanpham: 'Combo ngũ cốc 1',
                     dongia: 100,
+                    giamGia: 10, // Giảm giá 10%
                     soluong: 2,
-                    tongtien: 200,
+                    tongtien: 0, // Sẽ tính toán lại sau
                 },
                 {
                     id: 2,
-                    hinh:
-                        'https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg',
+                    hinh: 'https://img.freepik.com/free-photo/high-angle-beans-arrangement-concept_23-2148648539.jpg?size=626&ext=jpg',
                     sanpham: 'Combo ngũ cốc 2',
                     dongia: 150,
+                    giamGia: 15, // Giảm giá 15%
                     soluong: 3,
-                    tongtien: 450,
+                    tongtien: 0, // Sẽ tính toán lại sau
                 },
                 // Add more products as needed
             ],
@@ -122,11 +131,21 @@ export default {
                     pt: 'Chuyển khoản qua ngân hàng'
                 }
             ],
+            orderInfo: {
+                orderDate: '2023-11-13', // Thay đổi giá trị ngày đặt hàng tùy ý
+                deliveryDate: '2023-11-20', // Thay đổi giá trị ngày giao hàng tùy ý
+                deliveryStatus: 'Đã giao hàng', // Thay đổi trạng thái giao hàng tùy ý
+                deliveryPerson: 'Người giao hàng A', // Thay đổi tên người giao hàng tùy ý
+            },
         };
     },
     computed: {
         totalAmount() {
-            return this.cart.reduce((total, product) => total + product.tongtien, 0);
+            // Tính tổng tiền dựa trên giá, giảm giá và số lượng
+            return this.cart.reduce((total, product) => {
+                const priceAfterDiscount = product.dongia * (1 - product.giamGia / 100);
+                return total + priceAfterDiscount * product.soluong;
+            }, 0);
         },
     },
 };

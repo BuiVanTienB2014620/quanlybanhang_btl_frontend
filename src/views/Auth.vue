@@ -42,11 +42,11 @@
     <!-- Quyền lợi khi hiến máu -->
     <div class="tc">
       <div class="container">
-        
+
         <div class="row">
-          
-            <div class="col-sm-3" v-for="product in products" :key="product._id">
-              <router-link :to="{ name: 'product' }">
+
+          <div class="col-sm-3" v-for="product in products" :key="product._id">
+            <router-link :to="{ name: 'product', params: { id: product._id } }">
               <img :src="product.imgURL" alt="Hình ảnh" class="imgsp" />
 
 
@@ -54,16 +54,17 @@
               <div class="ten">
                 <p>{{ product.TenHH }}</p>
                 <div class="ngoi-sao">
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
-                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star text-warning"></i>
+                  <i class="fa-solid fa-star text-warning"></i>
+                  <i class="fa-solid fa-star text-warning"></i>
+                  <i class="fa-solid fa-star text-warning"></i>
+                  <i class="fa-solid fa-star text-warning"></i>
                 </div>
                 <p>{{ product.Gia }} VNĐ</p>
               </div>
-               </router-link>
-            </div>
-         
+            </router-link>
+          </div>
+
 
 
 
@@ -188,6 +189,8 @@ export default {
     async retrieveProducts() {
       try {
         this.products = await ProductService.getAll();
+        
+
       } catch (error) {
         console.error(error);
       }
