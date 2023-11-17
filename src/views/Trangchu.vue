@@ -59,7 +59,7 @@
                 <i class="fa-solid fa-star text-warning"></i>
                 <i class="fa-solid fa-star text-warning"></i>
               </div>
-              <p>{{ product.Gia }} VNĐ</p>
+              <p><b>{{ product.Gia }} VNĐ</b></p>
             </div>
 
 
@@ -389,4 +389,23 @@ const closeModalRegister = () => {
   background-color: #ffffff;
   border-radius: 10px;
 }
+.col-sm-6:hover {
+  transform: scale(1.05); /* Increase the size by 5% */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+.col-sm-3:hover {
+  transform: scale(1.05); /* Increase the size by 5% */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+.imgsp:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow on hover */
+  transition: box-shadow 0.3s ease; /* Add a smooth transition effect */
+}
+
+.tcs:hover {
+  background-color: #f0f0f0; /* Change the background color on hover */
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
 </style>

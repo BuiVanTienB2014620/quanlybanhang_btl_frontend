@@ -5,7 +5,7 @@
                 <router-link :to="{ name: 'trangchu' }" class="nav-link">
 
                     <img src="../assets/img/download.jpg" alt="" class="rounded-circle logo-img mr-2">
-                    <span class="logo-text text-success">Shop Cereal </span>
+                    <span class="logo-text text-success custom-logo-text">Shop Cereal</span>
 
                 </router-link>
 
@@ -39,7 +39,7 @@
 
 
                         <div>
-                            <button @click="OpenModalRegister" class="btn btn-success">Thay đổi thông tin</button>
+                            <button @click="OpenModalRegister" class="btn btn-success">Thay đổi thông tin </button>
                         </div>
 
                         <AModal :isShowModalRegister="isShowModalRegister" :closeModalRegister="closeModalRegister" />
@@ -72,18 +72,22 @@
 
                 </div>
                 <div class="nav-item" style="margin-right: 16px; color: white; ">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-question"
-                        width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                        stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                        <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
-                        <path d="M13.5 17h-7.5v-14h-2"></path>
-                        <path d="M6 5l14 1l-.714 5m-4.786 2h-8.5"></path>
-                        <path d="M19 22v.01"></path>
-                        <path d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483"></path>
-                    </svg>
+                    <router-link :to="{ name: 'psuccess' }" class="nav-link" style="color: #ffffff;">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart-question"
+                            width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0"></path>
+                            <path d="M13.5 17h-7.5v-14h-2"></path>
+                            <path d="M6 5l14 1l-.714 5m-4.786 2h-8.5"></path>
+                            <path d="M19 22v.01"></path>
+                            <path d="M19 19a2.003 2.003 0 0 0 .914 -3.782a1.98 1.98 0 0 0 -2.414 .483"></path>
+                        </svg>
+                        Đơn hàng của bạn
+                    </router-link>
 
-                    Hỏi Đáp
+
+                 
                 </div>
                 <div :class="'nav-item'" style="color: white;margin-right: auto;"></div>
             </nav>
@@ -127,12 +131,12 @@ export default {
         intervalId = setInterval(() => {
             const userJs = window.localStorage.getItem('user');
             const user = JSON.parse(userJs);
-           
+
 
             if (user) {
                 // console.log('user', user);
                 this.isLoggedIn = true;
-            } 
+            }
         }, 100); // Gọi mỗi 0,1 giây 
 
         // Để dừng việc gọi đoạn code sau một thời gian hoặc khi điều kiện nào đó được thỏa mãn, bạn có thể sử dụng clearInterval(intervalId)
@@ -300,5 +304,17 @@ const closeModalRegister = () => {
 
 .dropdown-menu {
     margin-left: -70px;
+}
+.custom-logo-text {
+    /* Apply your custom styles for the "Shop Cereal" text here */
+    font-family: 'Your Custom Font', sans-serif;
+    /* Example: Change font family to a custom font */
+    font-size: 24px;
+    /* Example: Change font size to 24 pixels */
+    font-weight: bold;
+    /* Example: Make the text bold */
+    color: #ff6600;
+    /* Example: Change text color to orange */
+    /* Add any other styles you want to customize the text appearance */
 }
 </style>
