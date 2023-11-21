@@ -1,8 +1,8 @@
 
 import createApiClient from "./api.service";
 
-class CartService {
-  constructor(baseUrl = "/api/carts") {
+class OrderService {
+  constructor(baseUrl = "/api/orders") {
     this.api = createApiClient(baseUrl);
   }
   async getAll() {
@@ -21,9 +21,6 @@ class CartService {
   async delete(id, data) {
     return (await this.api.delete(`/${id}`, data)).data;
   }
-  async deleteAll() {
-    return (await this.api.delete("/")).data;
-  }
 }
 
-export default new CartService();
+export default new OrderService();

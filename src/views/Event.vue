@@ -75,7 +75,7 @@
             </div>
             <div class="col-sm-3">
                 <h5 class="text-dark">THÔNG TIN KHÁCH HÀNG</h5>
-                <form class="text-dark" style="color:#e3e3e3" @submit.prevent="placeOrder">
+                <form class="text-dark" style="color:#e3e3e3" @submit.prevent="">
 
                     <label>Họ và tên:
                         <input type="text" required v-model="customer.hoten" placeholder="Nhập họ và tên">
@@ -111,16 +111,13 @@
                             Q. Ninh Kiều, TP. CT</div>
                     </div>
 
-                    <router-link :to="{ name: 'psuccess' }">
-                        <button>
-                            tiếp
-                        </button>
 
+                    <button name="btn-pay"
+                        style="display: block; overflow: hidden; color: #fff; text-align: center; height: 50px; margin: 10px auto; width: 100%; border-radius: 4px; background: #00ab9f; cursor: pointer;">
+                        <router-link :to="{ name: 'psuccess' }" style="color: #e3e3e3;">
+                            Đặt hàng</router-link>
 
-                    </router-link>
-                    <button name="btn-pay" @click="placeOrder"
-                        style="display: block; overflow: hidden; color: #fff; text-align: center; height: 50px; margin: 10px auto; width: 100%; border-radius: 4px; background: #00ab9f; cursor: pointer;">Đặt
-                        hàng</button>
+                    </button>
                 </form>
             </div>
         </div>
@@ -128,11 +125,13 @@
 </template>
   
 <script>
+
 import CartService from '../services/giohang.service';
 export default {
     data() {
         return {
             carts: [],
+
             userId: '',
 
             deliveryDays: 3,
@@ -140,8 +139,8 @@ export default {
 
 
             customer: {
-                hoten: 'John Doe',
-                sdt: '123456789',
+                hoten: 'Tiền',
+                sdt: '012345679',
                 postage: 'Yes',
                 province: 'Hanoi',
                 district: 'Cau Giay',
@@ -190,18 +189,7 @@ export default {
         },
 
 
-        updateQuantity(productId) {
-            // Implement the update quantity logic here
-        },
-        removeFromCart(productId) {
-            // Implement the remove from cart logic here
-        },
-        navigateToIndex() {
-            // Implement navigation logic to the index page
-        },
-        placeOrder() {
-            // Implement the place order logic here
-        },
+
         async created() {
             try {
                 // Retrieve userId from localStorage
@@ -232,6 +220,18 @@ export default {
                 }
             }
         },
+
+
+
+        decreaseQuantity() {
+            if (this.SoLuongHH > 1) {
+                this.SoLuongHH--;
+            }
+        },
+        increaseQuantity() {
+            this.SoLuongHH++;
+        },
+
 
     },
     created() {
