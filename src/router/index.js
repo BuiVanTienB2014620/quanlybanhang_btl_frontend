@@ -41,7 +41,7 @@ const routes = [
         component: () => import("@/views/Register.vue"),
       },
       {
-        path: "/events/:id",
+        path: "/events",
         name: "events",
         component: () => import("@/views/Event.vue"),
       },

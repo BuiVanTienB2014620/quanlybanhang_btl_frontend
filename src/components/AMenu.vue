@@ -38,7 +38,7 @@
                             </path>
                         </svg>
                         <router-link :to="{ name: 'admin-user' }" style="text-decoration: none; class " class="textp">
-                            Quản lí tài khoản
+                           Tài khoản hệ thống
 
                         </router-link>
 
@@ -81,7 +81,7 @@
                         </svg>
 
                         <router-link :to="{ name: 'dire' }" style="text-decoration: none; class " class="textp">
-                            Thống kê đơn hàng
+                            Đơn kê đơn hàng
                         </router-link>
                     </td>
 

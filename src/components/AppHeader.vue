@@ -55,7 +55,7 @@
         <div>
             <nav class="navbar navi">
                 <div class="nav-item" style="margin-right: 16px; color: white;margin-left: auto;">
-                    <router-link :to="{ name: 'trangchu' }" class="nav-link" style="color: #ffffff;">
+                    <router-link :to="{ name: 'auth' }" class="nav-link" style="color: #ffffff;">
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-2" width="24"
                             height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
                             stroke-linecap="round" stroke-linejoin="round">

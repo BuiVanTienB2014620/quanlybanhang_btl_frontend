@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div class="col-sm-12" style="text-align: center;">
-            <h3>Thống kê đơn đặt hàng</h3>
+            <h3>Đơn đặt hàng</h3>
             <label><b>Tổng số đơn hàng:</b></label>
             <label>{{ customers.length }}</label>
 
