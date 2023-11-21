@@ -75,7 +75,7 @@
             </div>
             <div class="col-sm-3">
                 <h5 class="text-dark">THÔNG TIN KHÁCH HÀNG</h5>
-                <form class="text-dark" style="color:#e3e3e3" @submit.prevent="">
+                <form class="text-dark" style="color:#e3e3e3" @submit.prevent="submitForm">
 
                     <label>Họ và tên:
                         <input type="text" required v-model="customer.hoten" placeholder="Nhập họ và tên">
@@ -112,10 +112,10 @@
                     </div>
 
 
-                    <button name="btn-pay"
+                    <button
                         style="display: block; overflow: hidden; color: #fff; text-align: center; height: 50px; margin: 10px auto; width: 100%; border-radius: 4px; background: #00ab9f; cursor: pointer;">
-                        <router-link :to="{ name: 'psuccess' }" style="color: #e3e3e3;">
-                            Đặt hàng</router-link>
+
+                        Đặt hàng
 
                     </button>
                 </form>
@@ -139,8 +139,8 @@ export default {
 
 
             customer: {
-                hoten: 'Tiền',
-                sdt: '012345679',
+                hoten: '',
+                sdt: '',
                 postage: 'Yes',
                 province: 'Hanoi',
                 district: 'Cau Giay',
@@ -220,7 +220,21 @@ export default {
                 }
             }
         },
+        submitForm() {
+            // Check if name and phone number are filled
+            if (!this.customer.hoten || !this.customer.sdt) {
+                alert('Please enter your name and phone number.');
+                return;
+            }
 
+            // The rest of your form submission logic
+            // ...
+
+            // Redirect to the success page and pass the customer information
+            this.$router.push({
+                name: 'psuccess',
+            });
+        },
 
 
         decreaseQuantity() {

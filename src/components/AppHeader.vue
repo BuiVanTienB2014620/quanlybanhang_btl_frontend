@@ -37,12 +37,12 @@
                         </button>
 
 
-
+<!-- 
                         <div>
                             <button @click="OpenModalRegister" class="btn btn-success">Thay đổi thông tin </button>
                         </div>
 
-                        <AModal :isShowModalRegister="isShowModalRegister" :closeModalRegister="closeModalRegister" />
+                        <AModal :isShowModalRegister="isShowModalRegister" :closeModalRegister="closeModalRegister" /> -->
 
 
                     </div>
@@ -301,10 +301,10 @@ const closeModalRegister = () => {
     color: black;
 
 }
-
+/* 
 .dropdown-menu {
     margin-left: -70px;
-}
+} */
 .custom-logo-text {
     /* Apply your custom styles for the "Shop Cereal" text here */
     font-family: 'Your Custom Font', sans-serif;
